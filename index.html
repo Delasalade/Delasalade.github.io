@@ -39,7 +39,7 @@
             width: 150vw;
             height: 150vh;
             background-color: white;
-            animation-delay: 0.5s;
+            animation-delay: 1s;
             animation: fadeout ease-in-out 1.5s forwards;
             pointer-events: none;
             z-index: 10;
@@ -65,7 +65,7 @@
         }
 
         .fadein {
-            animation: fadein ease-in-out 1s forwards;
+            animation: fadein ease-in-out 1.5s forwards;
         }
 
         @keyframes fadein {
@@ -76,6 +76,7 @@
 /*---------------------------------------------------MENU-----------------------------------------------------------------------*/  
         header {
             position: fixed;
+            z-index:2;
         }
 
         .menu {
@@ -86,7 +87,6 @@
             font-size: 40px;
             color: rgb(76, 0, 255);
             transition: color 0.3s ease-in-out, filter 1s ease-in-out;
-            z-index:2;
         }
 
         .menu span {
@@ -171,7 +171,7 @@
 
 /*ONCLICK*/
         .portrait.scaled {
-            max-height: 96vh;
+            max-height: 90vh;
         }
 
         .landscape.scaled {
@@ -196,11 +196,11 @@
             transition: opacity 0.5s ease-in-out, filter 1s ease-in-out;
         }
 
-        h6.glow {
+        h6.appear {
             opacity:1
         }
 
-        h6.glow span{
+        h6.appear span{
             opacity:1
         }
 
@@ -214,6 +214,10 @@
             filter: blur(1px) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1)) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1));
         }
 */
+        .note {
+            text-align: center;
+            padding-top: 4vh;
+        }
     </style>
 </head>
 
@@ -282,6 +286,8 @@
     <a class="item" href="http://www.thomasmailaender.com/">
         <img class="turnshine portrait" src="images/ce2ccfb023edaa723e578c345a3baaf0.jpg">
     </a>
+    
+    <div  class="note"><h6 class="appear">www.thomasmailaender.com *** Last update : 10/12/2021</h6></div>
     
     <script src="still.js"></script>
 
