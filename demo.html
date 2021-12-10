@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="jquery.js"></script>
+
+    <script src="bg.js"></script>
+
+    <style>
+        @font-face {
+            font-family: "Open Sans";
+            src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
+                url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background: no-repeat center center fixed;
+            background-size: cover;
+            height: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            z-index: 5;
+        }
+        
+
+        ::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+
+        header {
+            position: fixed;
+        }
+
+        h1 {
+            font-family: "Comic Sans MS";
+            margin: auto;
+            font-size: 80px;
+            width: 50%;
+            padding: 70px 0;
+            color: rgb(76, 0, 255);
+            transition: color 0.8s ease-in-out, filter 1s ease-in-out;
+            z-index:1;
+        }
+
+        h1:hover {
+            color: lightpink;
+            cursor: pointer;
+        }
+
+        .carréblanc {
+            top:-25vh;
+            left:-25vw;
+            position: fixed;
+            margin: 0;
+            padding: 0;
+            width: 150vw;
+            height: 150vh;
+            background-color: white;
+            animation-delay: 0.5s;
+            animation: fadeout ease-in-out 1.5s forwards;
+            pointer-events: none;
+            z-index: 4;
+        }
+        .carrétransparent {
+            top:-25vh;
+            left:-25vw;
+            position: fixed;
+            margin: 0;
+            padding: 0;
+            width: 150vw;
+            height: 150vh;
+            background-color: transparent;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        @keyframes fadeout {
+            to {
+                background-color: transparent;
+            }
+        }
+
+        .fadein {
+            animation: fadein ease-in-out 1s forwards;
+        }
+
+        @keyframes fadein {
+            to {
+                background-color: white;
+            }
+        }
+
+        img {
+            margin: auto;
+            display: block;
+            padding: 2%;
+            max-height: 100vh;
+            box-sizing: border-box;
+            transition: all 1s;
+        }
+
+        @keyframes changewidth {
+            from {
+                transform: rotate(-2.5deg);
+            }
+            to {
+                transform: rotate(2.5deg);
+            }
+        }
+
+        .tourneshine1 {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            animation: changewidth ease-in-out 3s alternate infinite;
+            animation-play-state: running;
+        }
+
+        .tourneshine1paused {
+            animation-play-state: paused;
+            filter: drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1)) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1));
+        }
+
+        .tourneshine1:hover {
+            cursor: pointer;
+            filter: drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1)) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1));
+        }
+
+        h6 {
+            font-family: sans-serif;
+            color: green;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: color 0.8s ease-in-out, filter 1s ease-in-out;
+            z-index: 3;
+        }
+
+        .glow {
+            color:rgb(255, 255, 255);
+            filter: drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1)) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1));
+        }
+
+        .scaled {
+            max-height: 120vh;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="carréblanc" ></div>
+    <div class="carrétransparent" ></div>
+
+    <header>
+        <div>
+            <a href="http://www.thomasmailaender.com/">
+                <h1>Thomas Mailaender <img src="images/FishChair.gif"></h1>
+            </a>
+        </div>
+    </header>
+
+    <img class="item tourneshine1" src="images/thomasmailaender2.jpg">
+        <h6 class="toglow">Project Name, 23.5x20.0, 2011, Paris</h6>
+    </img>
+    <img class="item tourneshine1" src="images/Tom1.jpg">
+    <video class="item tourneshine1" onclick="this.paused ? this.play() : this.pause();" loop><source src="images/Kruger-Barbara_InViolence1.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+    <img class="item tourneshine1" src="images/ce2ccfb023edaa723e578c345a3baaf0.jpg">
+    <img class="item tourneshine1" src="images/ce2ccfb023edaa723e578c345a3baaf0.jpg">
+    <img class="item tourneshine1" src="images/thomasmailaender2.jpg">
+    <img class="item tourneshine1" src="images/ce2ccfb023edaa723e578c345a3baaf0.jpg">
+    
+    <a class="item" href="http://www.thomasmailaender.com/">
+        <img class="tourneshine1" src="images/ce2ccfb023edaa723e578c345a3baaf0.jpg">
+    </a>
+    
+    <script src="still.js"></script>
+
+    <script src="fadeout.js"></script>
+</body>
+</html>
