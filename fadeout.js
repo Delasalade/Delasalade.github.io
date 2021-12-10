@@ -1,4 +1,4 @@
-$("a.item").click(function() {
+$(".link").click(function() {
     $( ".carrétransparent" ).addClass("fadein");
     var href = $(this).attr('href');
     setTimeout(function() {
