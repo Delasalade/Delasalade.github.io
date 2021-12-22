@@ -78,69 +78,110 @@
             width: fit-content;
             padding-bottom: 8px;
             position: fixed;
+            transition: all 0.9s ease-in-out;
             z-index:3;
         }
 
         .menu {
+            position: relative;
             font-family: Serif;
             font-style: oblique;
             font-weight: bold;
             margin: auto;
             font-size: 40px;
             color: rgb(76, 0, 255);
-            transition: color 0.15s ease-in-out, filter 0.5s ease-in-out;
+            transition: all 0.9s ease-in-out;
         }
 
         .menu span {
             background-color: rgb(195, 195, 195);
-            transition: color 0.15s ease-in-out, filter 0.5s ease-in-out;
+            transition: all 0.9s ease-in-out;
         }
 
 /*HOVER*/
         .menu:hover {
-            color:rgba(255, 0, 150, 1);
-            filter: blur(1px);
+            filter: blur(3px);
         }
 
         .menu span:hover {
-            filter: blur(1px) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1)) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1));
+            filter: blur(3px);
             cursor: pointer;
         }
 /*---------------------------------------------------DIV content-----------------------------------------------------------------------*/
         .item {
             width:fit-content;
             height: fit-content;
+            vertical-align:middle;
+            text-align: center;
             margin-left: auto;
             margin-right: auto;
             justify-content: center;
+            padding-top: 2.8vh;
             padding-bottom: 4vh;
             z-index:1;
         }
 /*---------------------------------------------------VISUAL content---------------------------------------------------------------------*/
         img {
             margin: auto;
-            padding: 2%;
             box-sizing: border-box;
-            transition: all 0.5s;
+            transition: all 1s ease-in-out;
         }
 
         video {
             background-color: black;
             margin: auto;
-            display: block;
-            padding: 2%;
             box-sizing: border-box;
-            transition: all 0.5s;
+            transition: all 1s ease-in-out;
         }
 
-        .portrait {
-            height: 900px;
+        .play1 {
+            position: absolute;
+            pointer-events: none;
+            padding: 2vh;
+            transform: translate(-15vh, -56vh);
+            height: 20vh;
+            width: 30vh; 
+            transition: all 1s ease-in-out;
+            background-color:rgb(195, 195, 195);
+            filter: blur(0px);
+        }
+
+        .play2 {
+            position: absolute;
+            pointer-events: none;
+            padding: 2vh;
+            transform: translate(-15vh, -45vh);
+            height: 20vh;
+            width: 30vh; 
+            transition: all 1s ease-in-out;
+            background-color:rgb(195, 195, 195);
+            filter: blur(0px);
+        }
+
+        .portrait1 {
+            height: auto;
+            width: 92vh;
+        }
+        .portrait2 {
+            height: 92vh;
             width: auto;
         }
-
-        .landscape {
+        .portrait3 {
             height: auto;
-            width: 900px;
+            width: 40vh;
+        }
+
+        .landscape1 {
+            height: 92vh;
+            width: auto;
+        }
+        .landscape2 {
+            height: 70vh;
+            width: auto;
+        }
+        .landscape3 {
+            height: 40vh;
+            width: auto;
         }
 
 /*BEHAVIOR*/
@@ -153,6 +194,10 @@
             }
         }
 
+        .blur {
+            filter: blur(3px);
+        }
+
         .turnshine {
             display: block;
             margin-left: auto;
@@ -163,25 +208,37 @@
 
         .turnshinepaused {
             animation-play-state: paused;
-            filter: blur(0px) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1)) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1));
+            filter: blur(0px);
         }
 
         .turnshine:hover {
             cursor: pointer;
-            filter: blur(2px) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1)) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1));
+            filter: blur(3px);
         }
 
 /*ONCLICK*/
-        .portrait.scaled {
-            height: 680px;
+        .portrait1.scaled {
+            width: 85vh;
+        }
+        .portrait2.scaled {
+            height: 85vh;
+        }
+        .portrait3.scaled {
+            width: 37vh;
         }
 
-        .landscape.scaled {
-            width: 680px;
+        .landscape1.scaled {
+            height: 85vh;
+        }
+        .landscape2.scaled {
+            height: 65vh;
+        }
+        .landscape3.scaled {
+            height: 37vh;
         }
 /*---------------------------------------------------COMMENTS---------------------------------------------------------------------*/
         h6 {
-            position : relative;
+            position : absolute;
             font-family: Serif;
             font-style: oblique;
             font-weight: bold;
@@ -189,14 +246,14 @@
             padding: 1.5vh;
             font-size: 18px;
             color: rgb(76, 0, 255);
-            transition: color 1s ease-in-out, opacity 0.5s ease-in-out, filter 1s ease-in-out;
+            transition: all 0.9s ease-in-out;
             opacity: 0;
             cursor: default;
         }
 
         h6 span {
             background-color: rgb(202, 202, 202);
-            transition: opacity 0.5s ease-in-out, filter 1s ease-in-out;
+            transition: all 0.9s ease-in-out;
         }
 
         h6.appear {
@@ -207,47 +264,56 @@
             opacity:1
         }
 /*---------------------------------------------------DESCRIPTION---------------------------------------------------------------------*/
-        .textdiv {
+        #parent_div {
             position: fixed;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            width:fit-content;
-            max-height: 400px;
-            overflow-y: scroll;
-            background-color:rgb(202, 202, 202);
-            transition: all 0.5s ease-in-out;
-            color:rgb(76, 0, 255);
-            filter: blur(0px) drop-shadow(0 0 0.5rem rgb(76, 0, 255)) drop-shadow(0 0 0.5rem rgb(76, 0, 255));
-            z-index: 4;
+            transition: all 0.9s ease-in-out;
+            z-index: 6;
+        }
+
+        #background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: whitesmoke;
+            filter: blur(30px);            
+            transition: all 0.9s ease-in-out;
         }
 
         p {
-            width: 800px;
-            margin: 2px;
+            margin: 70px;
+            padding: 0;
+            position: relative;
+            font-size: 18px;
             font-family: Serif;
             font-style: oblique;
             font-weight: bold;
-            font-size: 18px;
+            color:rgb(76, 0, 255);
+            filter: blur(0px);
+            transition: all 0.9s ease-in-out;
         }
 
-/*HOVER*/
-        .textdiv:hover {
-            filter: blur(1px) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1)) drop-shadow(0 0 0.5rem rgba(255, 0, 150, 1));
+        p:hover {
+            filter: blur(3px);
             cursor: pointer;
-            color:rgba(255, 0, 150, 1);
         }
 
-/*ONCLICK*/
         .disappear {
             opacity: 0;
-            filter: blur(1px);
             pointer-events: none;
         }
 /*---------------------------------------------------BOTTOM NOTE---------------------------------------------------------------------*/
         .note {
             text-align: center;
             padding-top: 4vh;
+        }
+
+        #bottomnote {
+            position: relative;
         }
     </style>
 </head>
@@ -256,73 +322,50 @@
     <div class="carréblanc" ></div>
     <div class="carrétransparent" ></div>
 
-    <div class="link title" href="http://www.thomasmailaender.com/">
+    <div class="link title" href="index.html">
         <a class="menu">
             <span>Thomas Mailaender</span>
         </a>
     </div>
-    <div class="link title" style="top: 62px;" href="http://www.thomasmailaender.com/">
+    <div class="link title" style="top: 62px;" href="archive.html">
         <a class="menu">
             <span>Archive</span>
         </a>
     </div>
-    <div class="link title" style="top: 117px;" href="http://www.thomasmailaender.com/">
+    <div class="link title" style="top: 117px;" href="about.html">
         <a class="menu">
             <span>About</span>
         </a>
     </div>
-    <div class="link title" style="top: 172px;" href="http://www.thomasmailaender.com/">
+    <div class="link title" style="top: 172px;" href="contact.html">
         <a class="menu">
             <span>Contact</span>
         </a>
     </div>
+    <div class="link title" style="top: 227px;" href="downloads.html">
+        <a class="menu">
+            <span>Downloads</span>
+        </a>
+    </div>
+
+    <div class="item link" href="lesbellesimages.html">
+        <img class="turnshine landscape1" src="images/small/lesbellesimages3.png">
+    </div>
     
-    <div class="textdiv">
-        <p>Invité par Luce Lebart, Directrice de la Société Française de Photographie (SFP), Thomas Mailaender s'est vu offrir de travailler sur les archives photographiques exceptionnelles et historiques de cet organisme.
-            Fondée à Paris en 1854 par un groupe de scientifiques, d'amateurs et d'artistes, reconnue d'utilité publique en 1892, la Société française de photographie (SFP) est la plus ancienne société de photographes encore en activité. Édifiée dans le but de promouvoir la photographie, ses améliorations et ses usages, la SFP se présente dès l'origine comme un organisme permettant de receuillir et de diffuser tous types de documents et d'archives sur l'activité photographique.
-            Aujourd'hui association loi 1901, la SFP, hébergée par la Bibliothèque nationale de France depuis 1993, se présente comme un centre de recherche et de ressources sur l'histoire et les développements de l'image photographique. Elle conserve et administre une collection unique au monde, classée Monument Historique, constituée par dons dès son origine et qui recèle notamment quelques incunables de l'histoire de la photographie et de nombreux appareils anciens. La SFP conserve également une bibliothèque riche de plus de 12.000 volumes consacrés à la photographie historique et contemporaine, dont environ 500 collections de périodiques français et étrangers. Elle réunit également de nombreux travaux universitaires consacrés à la photographie. La SFP est la plus importante collection privée spécialisée sur la photographie.
-            Le travail de Thomas Mailaender prend toujours comme point de départ une réflexion large sur l'image et nos sociétés. Travaillant parfois à partir d'images trouvées, il lui arrive également de réaliser des photographies ou de les faire réaliser par un tiers. Ses photographies sont parfois des redites d'images ayant déjà existées et en cela son travail s'inscrit dans l'histoire de la photographie. (la petite histoire de la Photographie plus que la grande)
-            Après un bref état des lieux de cette prestigieuse collection et devant le grand passé historique que représente cette institution, Thomas Mailaender a voulu un geste fort et s'est proposé de manger une photographie.
-            Ce geste important est à comprendre comme un hommage, une sorte de passage de relais entre les époques. Tout les jours nous créons de nouvelles images qui en chasse d'autres inexorablement. Quel est le sens de continuer à produire des images sans regarder le patrimoine qui nous précède? Quelle doit être l'emprise de ce passé sur un artiste travaillant aujourd'hui et comment imaginer construire sans détruire? Tout ces questionnements paradoxaux trouveront peut être (ou pas) leur réponses au moment de cette dégustation photographique.</p>
+    <div class="item link" href="twocupsonelamp.html">
+        <img class="turnshine portrait1" src="images/small/twocupsonelamp7.png">
     </div>
 
-    <div class="item">
-        <h6><span>Project Name, 23.5x20.0, 2011, Paris</span></h6>
-        <img class="turnshine portrait"src="images/thomasmailaender2.jpg">
+    <div class="item link" href="decalcomania.html">
+        <img class="turnshine landscape1" src="images/small/decalcomania7.jpg">
     </div>
 
-    <div class="item">
-        <h6><span>Project Name, 23.5x20.0, 2011, Paris</span></h6>
-        <img class="turnshine portrait" src="images/Tom1.jpg">
+    <div class="item link" href="chickenmuseum.html">
+        <img class="turnshine landscape1" src="images/Small/chickenmuseum8.png">
     </div>
 
-    <div class="item">
-        <h6><span>Project Name, 23.5x20.0, 2011, Paris</span></h6>
-        <video class="turnshine landscape" onclick="this.paused ? this.play() : this.pause();" loop><source src="images/Kruger-Barbara_InViolence1.mp4" type="video/mp4">Your browser does not support the video tag.</video>
-    </div>
-
-    <div class="item">
-        <h6><span>Project Name, 23.5x20.0, 2011, Paris</span></h6>
-        <img class="turnshine portrait" src="images/ce2ccfb023edaa723e578c345a3baaf0.jpg">
-    </div>
-
-    <div class="item">
-        <h6><span>Project Name, 23.5x20.0, 2011, Paris</span></h6>
-        <img class="turnshine portrait" src="images/ce2ccfb023edaa723e578c345a3baaf0.jpg">
-    </div>
-
-    <div class="item">
-        <h6><span>Project Name, 23.5x20.0, 2011, Paris</span></h6>
-        <img class="turnshine portrait" src="images/thomasmailaender2.jpg">
-    </div>
-
-    <div class="item">
-        <h6><span>Project Name, 23.5x20.0, 2011, Paris</span></h6>
-        <img class="turnshine portrait" src="images/ce2ccfb023edaa723e578c345a3baaf0.jpg">
-    </div>
-
-    <div class="item link" href="http://www.thomasmailaender.com/">
-        <img class="turnshine portrait" src="images/ce2ccfb023edaa723e578c345a3baaf0.jpg">
+    <div class="item link" href="bookworm.html">
+        <img class="turnshine portrait1" src="images/Small/bookworm2.jpg">
     </div>
     
     <div  class="note"><h6 class="appear">www.thomasmailaender.com *** Last update : 10/12/2021</h6></div>
