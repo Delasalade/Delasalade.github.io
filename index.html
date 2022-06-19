@@ -1,379 +1,200 @@
-<!DOCTYPE html>
-<html>
-
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <script src="jquery.js"></script>
-
-    <script src="bg.js"></script>
-
-    <style>
-/*---------------------------------------------------SET-UP-----------------------------------------------------------------------*/
-        a {
-            text-decoration: none;
-        }
-
-        html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            background: no-repeat center center fixed;
-            background-size: cover;
-            height: 100%;
-            overflow-y: scroll;
-            overflow-x: hidden;
-        }
-        
-        ::-webkit-scrollbar {
-            width: 0;
-            background: transparent;
-        }
-/*---------------------------------------------------FADING-----------------------------------------------------------------------*/      
-        .carréblanc {
-            top:-25vh;
-            left:-25vw;
-            position: fixed;
-            margin: 0;
-            padding: 0;
-            width: 150vw;
-            height: 150vh;
-            background-color: white;
-            animation-delay: 1s;
-            animation: fadeout ease-in-out 1.5s forwards;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .carrétransparent {
-            top:-25vh;
-            left:-25vw;
-            position: fixed;
-            margin: 0;
-            padding: 0;
-            width: 150vw;
-            height: 150vh;
-            background-color: transparent;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        @keyframes fadeout {
-            to {
-                background-color: transparent;
-            }
-        }
-
-        .fadein {
-            animation: fadein ease-in-out 1.5s forwards;
-        }
-
-        @keyframes fadein {
-            to {
-                background-color: white;
-            }
-        }
-/*---------------------------------------------------MENU-----------------------------------------------------------------------*/  
-        .title {
-            width: fit-content;
-            padding-bottom: 8px;
-            position: fixed;
-            transition: all 0.9s ease-in-out;
-            z-index:3;
-        }
-
-        .menu {
-            position: relative;
-            font-family: Serif;
-            font-style: oblique;
-            font-weight: bold;
-            margin: auto;
-            font-size: 40px;
-            color: rgb(76, 0, 255);
-            transition: all 0.9s ease-in-out;
-        }
-
-        .menu span {
-            background-color: rgb(195, 195, 195);
-            transition: all 0.9s ease-in-out;
-        }
-
-/*HOVER*/
-        .menu:hover {
-            filter: blur(3px);
-        }
-
-        .menu span:hover {
-            filter: blur(3px);
-            cursor: pointer;
-        }
-/*---------------------------------------------------DIV content-----------------------------------------------------------------------*/
-        .item {
-            width:fit-content;
-            height: fit-content;
-            vertical-align:middle;
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            padding-top: 2.8vh;
-            padding-bottom: 4vh;
-            z-index:1;
-        }
-/*---------------------------------------------------VISUAL content---------------------------------------------------------------------*/
-        img {
-            margin: auto;
-            box-sizing: border-box;
-            transition: all 1s ease-in-out;
-        }
-
-        video {
-            background-color: black;
-            margin: auto;
-            box-sizing: border-box;
-            transition: all 1s ease-in-out;
-        }
-
-        .play1 {
-            position: absolute;
-            pointer-events: none;
-            padding: 2vh;
-            transform: translate(-15vh, -56vh);
-            height: 20vh;
-            width: 30vh; 
-            transition: all 1s ease-in-out;
-            background-color:rgb(195, 195, 195);
-            filter: blur(0px);
-        }
-
-        .play2 {
-            position: absolute;
-            pointer-events: none;
-            padding: 2vh;
-            transform: translate(-15vh, -45vh);
-            height: 20vh;
-            width: 30vh; 
-            transition: all 1s ease-in-out;
-            background-color:rgb(195, 195, 195);
-            filter: blur(0px);
-        }
-
-        .portrait1 {
-            height: auto;
-            width: 92vh;
-        }
-        .portrait2 {
-            height: 92vh;
-            width: auto;
-        }
-        .portrait3 {
-            height: auto;
-            width: 40vh;
-        }
-
-        .landscape1 {
-            height: 92vh;
-            width: auto;
-        }
-        .landscape2 {
-            height: 70vh;
-            width: auto;
-        }
-        .landscape3 {
-            height: 40vh;
-            width: auto;
-        }
-
-/*BEHAVIOR*/
-        @keyframes changewidth {
-            from {
-                transform: rotate(-2.5deg);
-            }
-            to {
-                transform: rotate(2.5deg);
-            }
-        }
-
-        .blur {
-            filter: blur(3px);
-        }
-
-        .turnshine {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            animation: changewidth ease-in-out 3s alternate infinite;
-            animation-play-state: running;
-        }
-
-        .turnshinepaused {
-            animation-play-state: paused;
-            filter: blur(0px);
-        }
-
-        .turnshine:hover {
-            cursor: pointer;
-            filter: blur(3px);
-        }
-
-/*ONCLICK*/
-        .portrait1.scaled {
-            width: 85vh;
-        }
-        .portrait2.scaled {
-            height: 85vh;
-        }
-        .portrait3.scaled {
-            width: 37vh;
-        }
-
-        .landscape1.scaled {
-            height: 85vh;
-        }
-        .landscape2.scaled {
-            height: 65vh;
-        }
-        .landscape3.scaled {
-            height: 37vh;
-        }
-/*---------------------------------------------------COMMENTS---------------------------------------------------------------------*/
-        h6 {
-            position : absolute;
-            font-family: Serif;
-            font-style: oblique;
-            font-weight: bold;
-            margin: auto;
-            padding: 1.5vh;
-            font-size: 18px;
-            color: rgb(76, 0, 255);
-            transition: all 0.9s ease-in-out;
-            opacity: 0;
-            cursor: default;
-        }
-
-        h6 span {
-            background-color: rgb(202, 202, 202);
-            transition: all 0.9s ease-in-out;
-        }
-
-        h6.appear {
-            opacity:1
-        }
-
-        h6.appear span{
-            opacity:1
-        }
-/*---------------------------------------------------DESCRIPTION---------------------------------------------------------------------*/
-        #parent_div {
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.9s ease-in-out;
-            z-index: 6;
-        }
-
-        #background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: whitesmoke;
-            filter: blur(30px);            
-            transition: all 0.9s ease-in-out;
-        }
-
-        p {
-            margin: 70px;
-            padding: 0;
-            position: relative;
-            font-size: 18px;
-            font-family: Serif;
-            font-style: oblique;
-            font-weight: bold;
-            color:rgb(76, 0, 255);
-            filter: blur(0px);
-            transition: all 0.9s ease-in-out;
-        }
-
-        p:hover {
-            filter: blur(3px);
-            cursor: pointer;
-        }
-
-        .disappear {
-            opacity: 0;
-            pointer-events: none;
-        }
-/*---------------------------------------------------BOTTOM NOTE---------------------------------------------------------------------*/
-        .note {
-            text-align: center;
-            padding-top: 4vh;
-        }
-
-        #bottomnote {
-            position: relative;
-        }
-    </style>
+  <title>Accueil</title>
+  <meta charset = "utf-8" />
+  <meta name= "author" content="Marceau Moulin" />
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0"/>
+  
 </head>
 
-<body>
-    <div class="carréblanc" ></div>
-    <div class="carrétransparent" ></div>
+<body id="global">
+  <header id="header">
+    <a href=index.html><img class="logo" src="logo.png"></a>
+    <nav>
+    <span class="doite">
+      <ul>
+        <li>
+            <a href ="error.html" class="bouton">   &#9829; Support &#9829;   </a>
+        </li>
+        <li>
+            <a href ="error.html" class="bouton">   &#9829; Whishlist &#9829;   </a>
+        </li>
+        <li>
+            <a href ="error.html" class="bouton">   &#9829; Cart &#9829;   </a>
+        </li>
+        <li>
+            <a href ="error.html" class="bouton">   &#9829; Log in/Sign out &#9829;   </a>
+        </li>
+      </ul>
+    </span>
+    </nav>
+  </header>
+  <div>
+    <img class="frontheart1" src=fronthearts/HeartPink1.png>
+    <img class="frontheart2" src=fronthearts/HeartPink2.png>
+    <img class="frontheart3" src=fronthearts/HeartRed1.png>
+    <img class="frontheart4" src=fronthearts/HeartRed2.png>
+    <img class="frontheart5" src=fronthearts/HeartGold.png>
+    <img class="frontheart6" src=fronthearts/HeartWhite.png>
+    <img class="banderole_top" src=fronthearts/banderole_hearts_top.png>
+    <img class="banderole_bot" src=fronthearts/banderole_hearts_bot.png>
 
-    <div class="link title" href="index.html">
-        <a class="menu">
-            <span>Thomas Mailaender</span>
-        </a>
-    </div>
-    <div class="link title" style="top: 62px;" href="archive.html">
-        <a class="menu">
-            <span>Archive</span>
-        </a>
-    </div>
-    <div class="link title" style="top: 117px;" href="about.html">
-        <a class="menu">
-            <span>About</span>
-        </a>
-    </div>
-    <div class="link title" style="top: 172px;" href="contact.html">
-        <a class="menu">
-            <span>Contact</span>
-        </a>
-    </div>
-    <div class="link title" style="top: 227px;" href="downloads.html">
-        <a class="menu">
-            <span>Downloads</span>
-        </a>
-    </div>
+    <div class="slideshow-container">
 
-    <div class="item link" href="lesbellesimages.html">
-        <img class="turnshine landscape1" src="images/small/lesbellesimages3.png">
-    </div>
-    
-    <div class="item link" href="twocupsonelamp.html">
-        <img class="turnshine portrait1" src="images/small/twocupsonelamp7.png">
-    </div>
+        <div class="mySlides fade">
+          <img src="Slideshow/image_1.png" style="max-width:100%">
+        </div>
 
-    <div class="item link" href="decalcomania.html">
-        <img class="turnshine landscape1" src="images/small/decalcomania7.jpg">
+        <div class="mySlides fade">
+          <img src="Slideshow/image_2.png" style="max-width:100%">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="Slideshow/image_3.png" style="max-width:100%">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="Slideshow/image_4.png" style="max-width:100%">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="Slideshow/image_5.png" style="max-width:100%">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="Slideshow/image_6.png" style="max-width:100%">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="Slideshow/image_7.png" style="max-width:100%">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="Slideshow/image_8.png" style="max-width:100%">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="Slideshow/image_9.png" style="max-width:100%">
+        </div>
+      </div>
+
+      <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+
+      <script>
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 5000); // Change image every 2 seconds
+      }
+      </script>
+
+
+    <div id="nuage">
+      <img  class="nu1" src="nuage/nuage1.png">
+      <img  class="nu2" src="nuage/nuage2.png">
+      <img  class="nu3" src="nuage/nuage3.png">
     </div>
-
-    <div class="item link" href="chickenmuseum.html">
-        <img class="turnshine landscape1" src="images/Small/chickenmuseum8.png">
+    <div id="agrandissement">
+      <div class="wrapper">
+        <div class="textbox">
+          <p class="pink">
+              Welcome to BEST FRIENDS GIFTS online store! We are a non-independent, award-winning gift company with a passion for unique gift ideas! <br><br>
+              BEST FRIENDS GIFTS was founded because we love to make the people and there representatives feel special. We understand the importance of giving gifts that are received with excitement and create special memories. We therefore made it our mission to hunt out all the cool, fun and unusual gifts to offer in one lovely website!<br><br>
+              Many presidents and embassadors have already chosen BEST FRIENDS GIFTS for there diplomatic meetings. Whether you want to secure a billion dollars contract, sign a deal on nuclear power, host the olympic games or simply remind the ones you love that you share common roots, our special shop is there for you to choose the best gift to offer.<br><br>
+              Have the most enjoyable gift shopping experience and remember you can always treat yourself to something special!<br><br>
+              Happy shopping!<br></p>
+          </div>
+          <div class="img1">
+            <a href="page_katana.html"><img src='katana/Product Katana.png'></a>
+          </div>
+          <div class="img2">
+            <a href="page_balloon.html"><img src='balloon/Product Balloon.png'></a>
+          </div>
+          <div class="img3">
+            <a href="page_horse.html"><img src='horse/Product Horse.png'></a>
+          </div>
+          <div class="img4">
+            <a href="page_panda.html"><img src="panda/Product Panda.png"></a>
+          </div>
+          <div class="img5">
+            <a href="page_camel.html"><img src="camel/Product Camel.png"></a>
+          </div>
+          <div class="img6">
+            <a href="page_carpet.html"><img src="carpet/Product Carpet.png"></a>
+          </div>
+          <div class="img7">
+            <a href="page_champagne.html"><img src="champagne/Product Champagne.png"></a>
+          </div>
+          <div class="img8">
+            <a href="page_faience.html"><img src="faience/Product Faience.png"></a>
+          </div>
+          <div class="img9">
+            <a href="page_kilt.html"><img src="kilt/Product Kilt.png"></a>
+          </div>
+          <div class="img10">
+            <a href="page_missile.html"><img src="missile/Product Missile.png"></a>
+          </div>
+          <div class="img11">
+            <a href="page_plane.html"><img src="plane/ProductPlane.png"></a>
+          </div>
+        </div>
     </div>
-
-    <div class="item link" href="bookworm.html">
-        <img class="turnshine portrait1" src="images/Small/bookworm2.jpg">
-    </div>
-    
-    <div  class="note"><h6 class="appear">www.thomasmailaender.com *** Last update : 10/12/2021</h6></div>
-    
-    <script src="still.js"></script>
-
-    <script src="fadeout.js"></script>
-
-    <script src="disappear.js"></script>
+  </div>
+  <footer id="footer">
+    <nav>
+      <ul>
+        <li>
+            <a><h1>Contact informations</h1</a>
+            <a><h2>+33(0)14658571245</h2></a>
+            <a><h2>info@bestfriendsgifts.org</h2></a>
+        </li>
+        <li>
+          <h1>Quick Links</h1>
+          <a href="error.html"><h2>Shop</h2></a>
+          <a href="error.html"><h2>About BEST FRIENDS GIFTS</h2></a>
+          <a href="error.html"><h2>Contact</h2></a>
+          <a href="error.html"><h2>Our Store</h2></a>
+          <a href="error.html"><h2>Shipping & Delivery</h2></a>
+          <a href="error.html"><h2>FAQs</h2></a>
+          <a href="error.html"><h2>News & Updates</h2></a>
+          <a href="error.html"><h2>Returns</h2></a>
+          <a href="error.html"><h2>Privacy & Cookies</h2></a>
+          <a href="error.html"><h2>Terms & Conditions</h2></a>
+        </li>
+        <li>
+          <a><h1>Follow us</h1</a>
+          <a href="error.html"><h2>Twitter</h2></a>
+          <a href="error.html"><h2>Facebook</h2></a>
+          <a href="error.html"><h2>Youtube</h2></a>
+          <a href="error.html"><h2>Pinterest</h2></a>
+          <a href="error.html"><h2>Instagram</h2></a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
 </body>
-</html>
