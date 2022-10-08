@@ -1,0 +1,240 @@
+<head>
+    <title>Accueil</title>
+    <!--change this -->
+    <meta charset="utf-8" />
+    <meta name="author" content="Marceau Moulin" />
+    <link rel="stylesheet" media="all" href="style.css">
+    <!-- Pour tout le monde -->
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0" />
+</head>
+
+<body id="global">
+    <header id="header">
+        <a href=index.html><img class="logo" src="logo.png"></a>
+        <nav>
+            <span class="doite">
+      <ul>
+        <li>
+            <a href ="error.html" class="bouton">   &#9829; Support &#9829;   </a>
+        </li>
+        <li>
+            <a href ="error.html" class="bouton">   &#9829; Whishlist &#9829;   </a>
+        </li>
+        <li>
+            <a href ="error.html" class="bouton">   &#9829; Cart &#9829;   </a>
+        </li>
+        <li>
+            <a href ="error.html" class="bouton">   &#9829; Log in/Sign out &#9829;   </a>
+        </li>
+      </ul>
+    </span>
+        </nav>
+    </header>
+    <div id="main">
+        <img class="frontheart1" src=fronthearts/HeartPink1.png>
+        <img class="frontheart2" src=fronthearts/HeartPink2.png>
+        <img class="frontheart3" src=fronthearts/HeartRed1.png>
+        <img class="frontheart4" src=fronthearts/HeartRed2.png>
+        <img class="frontheart5" src=fronthearts/HeartGold.png>
+        <img class="frontheart6" src=fronthearts/HeartWhite.png>
+        <img class="banderole_top" src=fronthearts/banderole_hearts_top.png>
+        <img class="banderole_bot" src=fronthearts/banderole_hearts_bot.png>
+
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+                <img src="Slideshow/image_1.png" style="max-width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="Slideshow/image_2.png" style="max-width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="Slideshow/image_3.png" style="max-width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="Slideshow/image_4.png" style="max-width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="Slideshow/image_5.png" style="max-width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="Slideshow/image_6.png" style="max-width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="Slideshow/image_7.png" style="max-width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="Slideshow/image_8.png" style="max-width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="Slideshow/image_9.png" style="max-width:100%">
+            </div>
+        </div>
+
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"><
+              /span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+
+        <script>
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                setTimeout(showSlides, 5000); // Change image every 2 seconds
+            }
+        </script>
+
+
+        <div id="nuage">
+            <img class="nu1" src="nuage/nuage1.png">
+            <img class="nu2" src="nuage/nuage2.png">
+            <img class="nu3" src="nuage/nuage3.png">
+        </div>
+        <div id="agrandissement">
+            <div class="wrapper">
+                <div class="textbox">
+                    <p class="pink">
+                        Welcome to BEST FRIENDS GIFTS online store! We are a non-independent, award-winning gift company with a passion for unique gift ideas! <br><br> BEST FRIENDS GIFTS was founded because we love to make the people and there representatives
+                        feel special. We understand the importance of giving gifts that are received with excitement and create special memories. We therefore made it our mission to hunt out all the cool, fun and unusual gifts to offer in one lovely website!<br><br>                        Many presidents and embassadors have already chosen BEST FRIENDS GIFTS for there diplomatic meetings. Whether you want to secure a billion dollars contract, sign a deal on nuclear power, host the olympic games or simply remind
+                        the ones you love that you share common roots, our special shop is there for you to choose the best gift to offer.<br><br> Have the most enjoyable gift shopping experience and remember you can always treat yourself to something
+                        special!
+                        <br><br> Happy shopping!<br></p>
+                </div>
+                <div class="img1">
+                    <a href="page_katana.html"><img src='katana/Product Katana.png'></a>
+                </div>
+                <div class="img2">
+                    <a href="page_balloon.html"><img src='balloon/Product Balloon.png'></a>
+                </div>
+                <div class="img3">
+                    <a href="page_horse.html"><img src='horse/Product Horse.png'></a>
+                </div>
+                <div class="img4">
+                    <a href="page_panda.html"><img src="panda/Product Panda.png"></a>
+                </div>
+                <div class="img5">
+                    <a href="page_camel.html"><img src="camel/Product Camel.png"></a>
+                </div>
+                <div class="img6">
+                    <a href="page_carpet.html"><img src="carpet/Product Carpet.png"></a>
+                </div>
+                <div class="img7">
+                    <a href="page_champagne.html"><img src="champagne/Product Champagne.png"></a>
+                </div>
+                <div class="img8">
+                    <a href="page_faience.html"><img src="faience/Product Faience.png"></a>
+                </div>
+                <div class="img9">
+                    <a href="page_kilt.html"><img src="kilt/Product Kilt.png"></a>
+                </div>
+                <div class="img10">
+                    <a href="page_missile.html"><img src="missile/Product Missile.png"></a>
+                </div>
+                <div class="img11">
+                    <a href="page_plane.html"><img src="plane/ProductPlane.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <nav>
+            <ul>
+                <li>
+                    <a>
+                        <h1>Contact informations</h1</a>
+                            <a>
+                                <h2>+33(0)14658571245</h2>
+                            </a>
+                            <a>
+                                <h2>info@bestfriendsgifts.org</h2>
+                            </a>
+                </li>
+                <li>
+                    <h1>Quick Links</h1>
+                    <a href="error.html">
+                        <h2>Shop</h2>
+                    </a>
+                    <a href="error.html">
+                        <h2>About BEST FRIENDS GIFTS</h2>
+                    </a>
+                    <a href="error.html">
+                        <h2>Contact</h2>
+                    </a>
+                    <a href="error.html">
+                        <h2>Our Store</h2>
+                    </a>
+                    <a href="error.html">
+                        <h2>Shipping & Delivery</h2>
+                    </a>
+                    <a href="error.html">
+                        <h2>FAQs</h2>
+                    </a>
+                    <a href="error.html">
+                        <h2>News & Updates</h2>
+                    </a>
+                    <a href="error.html">
+                        <h2>Returns</h2>
+                    </a>
+                    <a href="error.html">
+                        <h2>Privacy & Cookies</h2>
+                    </a>
+                    <a href="error.html">
+                        <h2>Terms & Conditions</h2>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <h1>Follow us</h1</a>
+                            <a href="error.html">
+                                <h2>Twitter</h2>
+                            </a>
+                            <a href="error.html">
+                                <h2>Facebook</h2>
+                            </a>
+                            <a href="error.html">
+                                <h2>Youtube</h2>
+                            </a>
+                            <a href="error.html">
+                                <h2>Pinterest</h2>
+                            </a>
+                            <a href="error.html">
+                                <h2>Instagram</h2>
+                            </a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</body>
