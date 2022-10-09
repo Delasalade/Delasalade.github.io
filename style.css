@@ -217,6 +217,7 @@ header .bouton {
 
 #product-box {
     width: 65%;
+    max-width: 100%;
     float: left;
     position: sticky;
     top: 90px;
@@ -376,6 +377,11 @@ footer #slogan {
 }
 
 @media (max-width:960px) {
+
+   /* #stars img {
+        display: none;
+    } */
+
     /* HEADER MENU */
     #right {
         display: none;
@@ -478,6 +484,11 @@ footer #slogan {
 ************************************************************************************* */
 
 @media (max-width:780px) {
+
+   /* #stars img {
+        display: none;
+    } */
+
     header #logo {
         width: 60vw;
         /* padding: 0.5em 0.4em 0.7em; */
@@ -570,6 +581,11 @@ footer #slogan {
 ************************************************************************************* */
 
 @media (max-width:500px) {
+
+   /* #stars img {
+        display: none;
+    }*/
+
     /* HEADER */
     header #logo {
         width: 75vw;
