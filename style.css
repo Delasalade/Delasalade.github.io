@@ -251,9 +251,9 @@ header .bouton {
     top: 0;
 }
 
-.prod-wrapper:hover {
+/*.prod-wrapper:hover {
     width: 100%;
-}
+}*/
 
 .prod-wrapper#prod {
     padding: 0 3em;
@@ -261,6 +261,8 @@ header .bouton {
 
 .prod-wrapper img {
     max-height: 60vh;
+    max-width: 100%;
+    width: auto;
 }
 
 
