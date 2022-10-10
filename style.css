@@ -239,8 +239,8 @@ header .bouton {
 
 .prod-wrapper {
     display: flex;
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     text-align: center;
     margin-left: 2em;
     transition: width .4s;
@@ -252,11 +252,15 @@ header .bouton {
 }
 
 .prod-wrapper:hover {
-    width: 120%;
+    width: 100%;
 }
 
 .prod-wrapper#prod {
     padding: 0 3em;
+}
+
+.prod-wrapper img {
+    max-height: 60vh;
 }
 
 
@@ -378,9 +382,9 @@ footer #slogan {
 
 @media (max-width:960px) {
 
-   /* #stars img {
+   #stars img {
         display: none;
-    } */
+    } 
 
     /* HEADER MENU */
     #right {
@@ -457,7 +461,7 @@ footer #slogan {
         /* float: left; */
         position: relative;
         /* top: 90px; */
-        height: auto;
+        max-height: 70vh;
     }
     .prod-wrapper {
         margin-left: 0;
@@ -485,9 +489,9 @@ footer #slogan {
 
 @media (max-width:780px) {
 
-   /* #stars img {
+   #stars img {
         display: none;
-    } */
+    } 
 
     header #logo {
         width: 60vw;
@@ -582,9 +586,9 @@ footer #slogan {
 
 @media (max-width:500px) {
 
-   /* #stars img {
+    #stars img {
         display: none;
-    }*/
+    }
 
     /* HEADER */
     header #logo {
